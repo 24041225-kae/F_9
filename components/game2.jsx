@@ -40,10 +40,10 @@ export default function Game2() {
   const [openTaskId, setOpenTaskId] = useState(tasksData[0].id);
   const [userAnswers, setUserAnswers] = useState({});
   const [status, setStatus] = useState({});
-  const [showCelebration, setShowCelebration] = useState(true);
+  const [showCelebration, setShowCelebration] = useState(false);
 
-  const [goToContent, setGoToContent] = useState(true);
-  const [goToEnding, setGoToEnding] = useState(true);
+  const [goToContent, setGoToContent] = useState(false);
+  const [goToEnding, setGoToEnding] = useState(false);
 
   if (goToEnding) {
     return <Ending />;
@@ -83,6 +83,11 @@ export default function Game2() {
       setStatus((prev) => ({ ...prev, [task.id]: "wrong" }));
     }
   };
+
+  // Check if all tasks are completed
+  const allTasksCompleted = tasksData.every(
+    (task) => status[task.id] === "correct"
+  );
 
   return (
     <div className="mx-auto mb-10 mt-8 max-w-4xl px-4 font-sans">
@@ -167,6 +172,19 @@ export default function Game2() {
           );
         })}
       </div>
+
+      {/* Completion button - shown when all tasks are completed */}
+      {allTasksCompleted && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setGoToContent(true)}
+            className="rounded-lg bg-blue-500 px-8 py-3 font-semibold text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          >
+            Continue to Next Page →
+          </button>
+        </div>
+      )}
 
       {/* 🎉 Celebration overlay */}
       {showCelebration && (
