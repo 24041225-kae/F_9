@@ -1,0 +1,1 @@
+// the page with the clouds and welcome message
