@@ -1,34 +1,21 @@
+
 "use client";
 
-import React, { useState } from 'react';
-import Home from '../components/home.jsx'; 
-import Welcome from '../components/welcome';
-
+import React, { useEffect, useState } from 'react';
+import {animate} from "animejs"; //npm install animejs
+// import about from '../components/about';
+// import ending from '../components/ending';
+// import footer from '../components/footer';
+// import game1 from '../components/game1';
+// import game2 from '../components/game2';
+// import navbar from '../components/navbar';
+// import quiz from '../components/quiz.jsx';
+// import welcome from '../components/welcome';
+import Home from '../components/game1.jsx';
 export default function HomePage() {
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [screen, setScreen] = useState("home"); 
-
   return (
-    <div className="relative min-h-screen">
-      {showWelcome && (
-        <Welcome onComplete={() => setShowWelcome(false)} />
-      )}
-
-      <div
-        className={`transition-opacity duration-1000 ${
-          showWelcome ? "opacity-0" : "opacity-100"
-        }`}
-      >
-
-        {screen === "home" && (
-          <Home onStart={() => setScreen("game1")} />
-        )}
-
-        {screen === "game1" && (
-          <CatFishGame />
-        )}
-
-      </div>
+    <div>
+      <Home />
     </div>
   );
 }
