@@ -40,10 +40,10 @@ export default function Game2() {
   const [openTaskId, setOpenTaskId] = useState(tasksData[0].id);
   const [userAnswers, setUserAnswers] = useState({});
   const [status, setStatus] = useState({});
-  const [showCelebration, setShowCelebration] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(true);
 
-  const [goToContent, setGoToContent] = useState(false);
-  const [goToEnding, setGoToEnding] = useState(false);
+  const [goToContent, setGoToContent] = useState(true);
+  const [goToEnding, setGoToEnding] = useState(true);
 
   if (goToEnding) {
     return <Ending />;
@@ -67,11 +67,14 @@ export default function Game2() {
   const handleSubmit = (task) => {
     const raw = userAnswers[task.id] || "";
     const user = raw.trim().toLowerCase();
-    const correct = task.answer.trim().toLowerCase();
 
     if (!user) return;
 
-    if (user === correct) {
+    const isCorrect = task.answers.some(
+      (answer) => answer.toLowerCase() === user
+    );
+
+    if (isCorrect) {
       setStatus((prev) => ({ ...prev, [task.id]: "correct" }));
       setShowCelebration(true);
 
