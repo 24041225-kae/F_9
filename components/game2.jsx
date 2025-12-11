@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Game2Content from "./game2content";
+import Ending from "./ending";
 
 const tasksData = [
   {
@@ -32,8 +34,19 @@ const tasksData = [
 export default function Game2() {
   const [openTaskId, setOpenTaskId] = useState(tasksData[0].id);
   const [userAnswers, setUserAnswers] = useState({});
-  const [status, setStatus] = useState({}); // { [id]: "idle" | "correct" | "wrong" }
+  const [status, setStatus] = useState({});
   const [showCelebration, setShowCelebration] = useState(false);
+
+  const [goToContent, setGoToContent] = useState(false);
+  const [goToEnding, setGoToEnding] = useState(false);
+
+  if (goToEnding) {
+    return <Ending />;
+  }
+
+  if (goToContent) {
+    return <Game2Content onDone={() => setGoToEnding(true)} />;
+  }
 
   const toggleTask = (id) => {
     setOpenTaskId((current) => (current === id ? null : id));
@@ -47,21 +60,33 @@ export default function Game2() {
   };
 
   const handleSubmit = (task) => {
-    const raw = userAnswers[task.id] || "";
-    const user = raw.trim().toLowerCase();
-    const correct = task.answer.trim().toLowerCase();
+  const raw = userAnswers[task.id] || "";
+  const user = raw.trim().toLowerCase();
+  const correct = task.answer.trim().toLowerCase();
 
-    if (!user) return;
+  if (!user) return;
 
-    if (user === correct) {
-      setStatus((prev) => ({ ...prev, [task.id]: "correct" }));
-      setShowCelebration(true);
+  if (user === correct) {
+    setStatus((prev) => {
+      const updated = { ...prev, [task.id]: "correct" };
 
-      setTimeout(() => setShowCelebration(false), 1600);
-    } else {
-      setStatus((prev) => ({ ...prev, [task.id]: "wrong" }));
-    }
-  };
+      const allCorrect = tasksData.every(t => updated[t.id] === "correct");
+      if (allCorrect) {
+        setTimeout(() => {
+          setGoToContent(true);
+        }, 1200);
+      }
+
+      return updated;
+    });
+
+    setShowCelebration(true);
+    setTimeout(() => setShowCelebration(false), 1200);
+  } else {
+    setStatus((prev) => ({ ...prev, [task.id]: "wrong" }));
+  }
+};
+
 
   return (
     <div className="mx-auto mb-10 mt-8 max-w-4xl px-4 font-sans">

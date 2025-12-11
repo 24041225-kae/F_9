@@ -3,14 +3,14 @@
 import React from "react";
 import Link from "next/link";
 
-export default function Game2Content({ onBack }) {
+export default function Game2Content({ onDone }) {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-6 py-12 bg-[#E8F5FF]">
             <div className="bg-white shadow-xl rounded-3xl p-10 w-full max-w-4xl border-[3px] border-[#B7DBFF]">
 
                 {/* Title */}
                 <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2] text-center">
-                    🦊 Learn More About Animal Hunting
+                    🦊 Learn More About Animal Poaching
                 </h1>
 
                 <p className="text-gray-700 text-lg mb-8 text-center leading-relaxed">
@@ -115,7 +115,7 @@ export default function Game2Content({ onBack }) {
                     </p>
 
                     <Link
-                        href="https://www.nparks.gov.sg/wildlife"
+                        href="https://www.nparks.gov.sg/"
                         target="_blank"
                         className="inline-block px-6 py-3 bg-[#79BFFD] text-white font-semibold rounded-full shadow-md hover:bg-[#5CAAF4] transition-all active:scale-95"
                     >
@@ -123,6 +123,14 @@ export default function Game2Content({ onBack }) {
                     </Link>
                 </section>
 
+                <section className="flex justify-center mt-8 mb-4">
+                    <button
+                        onClick={onDone}
+                        className="px-8 py-3 bg-[#4A90E2] text-white font-bold rounded-full shadow-lg hover:bg-[#357ABD] transition-transform transform hover:scale-105 active:scale-95 text-lg"
+                    >
+                        Done
+                    </button>
+                </section>
             </div>
         </div>
     );

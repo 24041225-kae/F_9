@@ -5,6 +5,7 @@ import Home from '../components/home.jsx';
 import Welcome from '../components/welcome';
 import Game1 from '../components/game1.jsx';
 import Game2 from '../components/game2.jsx';
+import Ending from "../components/ending.jsx";
 
 export default function HomePage() {
   const [showWelcome, setShowWelcome] = useState(true);
