@@ -4,30 +4,35 @@ import { useState } from "react";
 import Game2Content from "./game2content";
 import Ending from "./ending";
 
+// --- CASE STUDY TASKS USING YOUR POACHING STORY ---
 const tasksData = [
   {
     id: 1,
-    title: "Task 1  ✅  Introduction",
+    title: "Task 1  ✅  Poaching Overview",
     scenario:
-      "A case study of abalone poaching in South Africa and its impacton ﬁsheries management. \nHere you can paste your first case study. Explain the situation, what happened, who is involved, etc.",
-    question: "Q1: What is the key issue in this scenario?",
-    answer: "animal abuse", // change to your correct answer
+      "Over a period of three years, game wardens from the Kansas Department of Wildlife and Parks investigated a large poaching ring across four counties in northwest Kansas. The investigation uncovered 140 wildlife-related offences committed between 2015 and 2019. In total, nine people were charged. Wardens identified 25 illegally taken deer (mostly mule deer), as well as eight turkeys, one antelope and other wildlife. Many of the animals were taken out of season, shot with firearms while the hunters held only archery permits, or killed without any permit at all.",
+    question:
+      "Q1: How many deer were found to have been taken illegally during this investigation?",
+    // we accept both numeric and word forms
+    answers: ["25", "twenty five", "twenty-five"],
   },
   {
     id: 2,
-    title: "Task 2  ✅  Responsibilities",
+    title: "Task 2  ✅  Penalties and Consequences",
     scenario:
-      "Paste another scenario here. Maybe about responsibilities, laws or what bystanders should do.",
-    question: "Q2: Who should you report the case to?",
-    answer: "authorities", // change
+      "Officials highlighted three of the nine individuals. Tayton Weeter pled guilty to 22 poaching-related charges and was ordered to pay $45,000 in fines and restitution, with his hunting licence revoked for 10 years. Tracy Weeter pled guilty to 12 charges, was fined $750, ordered to pay $1,688 in court fees and lost hunting privileges for two years. Sean Winter pled guilty to six charges, paid $5,800 in fines and restitution, had his hunting licence revoked for 12 months and also forfeited a firearm. Kansas law treats the unlawful intentional taking of trophy big game very seriously, with minimum fines of $5,000 and extra restitution based on antler size.",
+    question:
+      "Q2: Which individual received the largest fine and a 10-year hunting licence revocation?",
+    answers: ["tayton weeter", "tayton"],
   },
   {
     id: 3,
-    title: "Task 3  ✅  Taking Action",
+    title: "Task 3  ✅  Public Responsibility",
     scenario:
-      "Third scenario / follow-up. Maybe ask what action is most responsible.",
-    question: "Q3: Is it okay to ignore the situation? (yes/no)",
-    answer: "no", // change
+      "To build the case, game wardens executed multiple physical and electronic search warrants and carried out interviews across Cheyenne, Sherman, Wallace and Logan counties. Detailed antler scoring was used to calculate restitution fees that are paid into a wildlife fund. While the exact tactics remain confidential, officials stressed that public reports are crucial. The Kansas Department of Wildlife and Parks urged people to call the state's dedicated poaching hotline, known as the Operation Game Thief line, whenever they witness wildlife violations.",
+    question:
+      "Q3: What is the name of the dedicated hotline the public is encouraged to use to report wildlife violations? (Operation ____ Thief line)",
+    answers: ["game", "operation game thief", "game thief"],
   },
 ];
 
@@ -60,42 +65,30 @@ export default function Game2() {
   };
 
   const handleSubmit = (task) => {
-  const raw = userAnswers[task.id] || "";
-  const user = raw.trim().toLowerCase();
-  const correct = task.answer.trim().toLowerCase();
+    const raw = userAnswers[task.id] || "";
+    const user = raw.trim().toLowerCase();
+    const correct = task.answer.trim().toLowerCase();
 
-  if (!user) return;
+    if (!user) return;
 
-  if (user === correct) {
-    setStatus((prev) => {
-      const updated = { ...prev, [task.id]: "correct" };
+    if (user === correct) {
+      setStatus((prev) => ({ ...prev, [task.id]: "correct" }));
+      setShowCelebration(true);
 
-      const allCorrect = tasksData.every(t => updated[t.id] === "correct");
-      if (allCorrect) {
-        setTimeout(() => {
-          setGoToContent(true);
-        }, 1200);
-      }
-
-      return updated;
-    });
-
-    setShowCelebration(true);
-    setTimeout(() => setShowCelebration(false), 1200);
-  } else {
-    setStatus((prev) => ({ ...prev, [task.id]: "wrong" }));
-  }
-};
-
+      setTimeout(() => setShowCelebration(false), 1600);
+    } else {
+      setStatus((prev) => ({ ...prev, [task.id]: "wrong" }));
+    }
+  };
 
   return (
     <div className="mx-auto mb-10 mt-8 max-w-4xl px-4 font-sans">
       <h1 className="mb-1 text-3xl font-semibold text-slate-900 dark:text-slate-50">
-        Game 2 – Scenario Quiz
+        Game 2 – Poaching Case Quiz
       </h1>
       <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
-        Read each task, open the dropdown, study the case, and answer the
-        question. 🎉
+        Read each task, open the dropdown, study the case study, and answer the
+        question. Correct answers will be celebrated! 🎉
       </p>
 
       <div className="flex flex-col gap-3">
@@ -130,9 +123,7 @@ export default function Game2() {
               {/* Body */}
               {isOpen && (
                 <div className="bg-white px-4 pb-4 pt-3 text-sm text-slate-800">
-                  <p className="mb-1 font-semibold text-slate-700">
-                    Scenario
-                  </p>
+                  <p className="mb-1 font-semibold text-slate-700">Scenario</p>
                   <p className="mb-3 leading-relaxed">{task.scenario}</p>
 
                   <p className="mb-2 font-semibold">{task.question}</p>
@@ -194,7 +185,6 @@ export default function Game2() {
               Keep going and complete the other tasks.
             </p>
 
-            {/* little ping bubbles for extra effect */}
             <span className="pointer-events-none absolute -top-2 -left-2 h-4 w-4 rounded-full bg-pink-400 opacity-70 animate-ping" />
             <span className="pointer-events-none absolute -bottom-3 -right-3 h-5 w-5 rounded-full bg-indigo-400 opacity-70 animate-ping" />
           </div>
