@@ -10,7 +10,7 @@ const initialFishes = [
   { id: "fish3", label: "Verbal Abuse", isCorrect: false },
 ];
 
-export default function Home() {
+export default function Game1() {
   const [fishes, setFishes] = useState(initialFishes);
   const [catState, setCatState] = useState("idle"); // "idle" | "eat" | "reject"
   const [message, setMessage] = useState("");
