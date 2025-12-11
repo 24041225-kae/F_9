@@ -356,3 +356,11 @@ h1 {
 .btn-ready:hover {
   background-color: #ffa726;
 }
+
+.game2 {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background-color: #217dbe;
+  border-radius: 12px;
+}

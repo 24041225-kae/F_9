@@ -90,7 +90,7 @@ export default function Game2() {
   );
 
   return (
-    <div className="mx-auto mb-10 mt-8 max-w-4xl px-4 font-sans">
+    <div className="mx-auto mb-10 mt-8 max-w-4xl px-4 font-sans bg-pink-50 py-6 rounded-2xl shadow-lg border-2 border-pink-200">
       <h1 className="mb-1 text-3xl font-semibold text-slate-900 dark:text-slate-50">
         Game 2 – Poaching Case Quiz
       </h1>
