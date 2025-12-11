@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-
-// game showcaseing feeding a cat\
-// give case study of animal abuse
+"use client";
+import React, { useState } from "react";
+import Game1Content from "./game1content";
 
 const initialFishes = [
-  // Change these labels/options to match your question/answers
   { id: "fish1", label: "Emotional Abuse", isCorrect: false },
   { id: "fish2", label: "Physical Abuse", isCorrect: true },
   { id: "fish3", label: "Verbal Abuse", isCorrect: false },
@@ -12,18 +10,17 @@ const initialFishes = [
 
 export default function Game1() {
   const [fishes, setFishes] = useState(initialFishes);
-  const [catState, setCatState] = useState("idle"); // "idle" | "eat" | "reject"
+  const [catState, setCatState] = useState("idle");
   const [message, setMessage] = useState("");
   const [rejectFishId, setRejectFishId] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [game1Content, setGame1Content] = useState(false);
 
   const handleDragStart = (e, fishId) => {
     e.dataTransfer.setData("text/plain", fishId);
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault(); // allow drop
-  };
+  const handleDragOver = (e) => e.preventDefault();
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -34,30 +31,25 @@ export default function Game1() {
     if (!fish) return;
 
     if (fish.isCorrect) {
-      // ✅ Correct answer
       setMessage("Yum! 😋 Correct answer!");
       setCatState("eat");
       setShowCelebration(true);
+      setGame1Content(true);
 
-      // Mark fish as eaten
       setFishes((prev) =>
         prev.map((f) =>
           f.id === fishId ? { ...f, eaten: true } : f
         )
       );
 
-      // Remove fish + hide celebration after a short delay
       setTimeout(() => {
         setFishes((prev) => prev.filter((f) => f.id !== fishId));
         setCatState("idle");
         setMessage("");
       }, 800);
 
-      setTimeout(() => {
-        setShowCelebration(false);
-      }, 1600);
+      setTimeout(() => setShowCelebration(false), 1600);
     } else {
-      // ❌ Wrong answer
       setMessage("Nope! 😾 Try again.");
       setCatState("reject");
       setRejectFishId(fishId);
@@ -70,102 +62,103 @@ export default function Game1() {
     }
   };
 
+  if (game1Content) {
+    return <Game1Content onBack={() => setGame1Content(false)} />;
+  }
+
   return (
-    <main className="page">
-      {/* Case study section */}
-      <section className="caseSection">
-        <h1 className="heading">Case Study 1</h1>
-        <h2>Physical Abuse</h2>
-        <img src="/game1.png" alt="Case study illustration" style={{ width: "200px", marginTop: "8px" }} />
-        <p className="caseText">
-          {/* 🔻 Replace this paragraph with your own case study text */}
+    <main className="min-h-screen bg-[#E8F5FF] px-6 py-10 flex flex-col items-center gap-10">
 
-            Poodle, Boyboy, Brutally Hit by Domestic Helper
-        On 26 January 2024, the SPCA received news of a poodle named Boyboy who had been
-        abused by a domestic helper. We immediately contacted the authorities and advised Boyboy’s
-        owner to file reports with the police and AVS. CCTV footage showed the helper brutally hitting
-        Boyboy with her hand and a rod and hanging him from the balcony railing.
-        Boyboy was found dead, biting his tongue and bleeding from his mouth. His post-cremation
-        remains showed damage to the skull, likely the result of forceful blows to the head. The
-        domestic helper was sentenced to nine months in jail.
-        It has since transpired that the helper was allegedly acting on instructions. For example, the
-        court heard that the helper had been told by her employer to hit Boyboy if he started eating
-        before being allowed to do so, and to hang him under direct sunlight to reduce his odour.
+      {/* Case Study Box */}
+      <section className="bg-white shadow-xl rounded-3xl p-8 max-w-3xl w-full border-[3px] border-[#B7DBFF]">
+        <h1 className="text-3xl font-extrabold text-[#4A90E2] mb-2">Case Study 1</h1>
 
+        <h2 className="text-xl font-semibold text-[#6BB9F0]">Physical Abuse</h2>
+
+        <img
+          src="/game1.png"
+          alt="case study"
+          className="w-48 mt-3 rounded-lg shadow"
+        />
+
+        <p className="text-gray-700 mt-4 leading-relaxed">
+          Poodle, Boyboy, was harmed by a domestic helper. After receiving reports,
+          SPCA contacted authorities and investigations began. CCTV showed Boyboy being
+          struck repeatedly. The helper was later sentenced to nine months in jail.
+          The helper had reportedly been instructed to punish Boyboy if he disobeyed.
         </p>
 
-        <h2 className="questionTitle">Question</h2>
-        <p className="questionText">
-          After reading the case study above, What abuse is this an example of?
+        <h2 className="text-xl font-semibold text-[#6BB9F0] mt-6">Question</h2>
+
+        <p className="text-gray-700 text-lg">
+          After reading the case study, what type of abuse is shown?
         </p>
       </section>
 
-      {/* Game section */}
-      <section className="gameSection">
-        <p className="instructions">
-          Drag the correct answer (fish) into the cat. If you get it right, the
-          cat will eat it and you’ll get a celebration! 🎉
+      {/* Game Section */}
+      <section className="flex flex-col items-center max-w-4xl w-full">
+        <p className="text-gray-700 mb-4 text-center">
+          Drag the correct answer (fish) into the cat. If you're right, enjoy a celebration! 🎉
         </p>
 
-        <div className="game">
-          {/* Fish options */}
-          <div className="options">
+        <div className="flex flex-col md:flex-row gap-10 items-center">
+
+          {/* Fish Options */}
+          <div className="flex flex-col gap-4">
             {fishes.map((fish) => (
               <div
                 key={fish.id}
-                className={[
-                  "fish",
-                  fish.eaten ? "fishEaten" : "",
-                  rejectFishId === fish.id ? "fishReject" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
                 draggable={!fish.eaten}
                 onDragStart={(e) => handleDragStart(e, fish.id)}
+                className={[
+                  "w-56 px-4 py-3 bg-white border-2 border-[#99b3ff] rounded-lg shadow cursor-pointer text-center text-gray-700 font-semibold transition-all select-none",
+                  fish.eaten && "opacity-0 scale-50 pointer-events-none",
+                  rejectFishId === fish.id && "animate-shake",
+                ].join(" ")}
               >
                 {fish.label}
               </div>
             ))}
           </div>
 
-          {/* Cat drop zone */}
+          {/* Cat Drop Zone */}
           <div
-            className={[
-              "cat",
-              catState === "eat" ? "eat" : "",
-              catState === "reject" ? "reject" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
+            className={[
+              "w-60 h-60 bg-[#fff7d1] border-4 border-[#f4b000] rounded-2xl shadow-lg flex flex-col justify-center items-center transition-all",
+              catState === "eat" && "scale-110",
+              catState === "reject" && "animate-shake",
+            ].join(" ")}
           >
-            <div className="catEmoji">🐱</div>
-            <p className="catText">Drop your answer here</p>
-            <div className="message">{message}</div>
+            <div className="text-7xl">🐱</div>
+            <p className="text-gray-700 mt-2 font-medium">Drop your answer here</p>
+            <div className="text-[#4A90E2] mt-2 font-semibold">{message}</div>
           </div>
         </div>
       </section>
 
-      {/* 🎉 Celebration overlay */}
+      {/* Celebration Overlay */}
       {showCelebration && (
-        <div className="celebrationOverlay">
-          <div className="celebrationBox">
-            <div className="popperRow">
-              <span className="popper">🎉</span>
-              <span className="popper">🎊</span>
-              <span className="popper">🎉</span>
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+
+          <div className="bg-white p-6 rounded-2xl shadow-xl animate-pop">
+            <div className="flex justify-center gap-4 text-3xl mb-2">
+              🎉 🎊 🎉
             </div>
-            <p className="celebrationText">Well done! You chose the right action!</p>
+            <p className="font-bold text-gray-800">Well done! You chose the right action!</p>
           </div>
 
-          {/* Simple falling confetti pieces */}
-          <div className="confettiContainer">
+          {/* Confetti */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {Array.from({ length: 30 }).map((_, i) => (
               <span
                 key={i}
-                className="confetti"
-                style={{ "--i": i }}
+                className="absolute w-2 h-4 rounded bg-red-400 animate-confetti"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${i * 0.05}s`,
+                }}
               />
             ))}
           </div>
