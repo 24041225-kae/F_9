@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Home from '../components/home.jsx';
 import Welcome from '../components/welcome';
 import Game1 from '../components/game1.jsx';
+import Game2 from '../components/game2.jsx';
 
 export default function HomePage() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -31,6 +32,11 @@ export default function HomePage() {
         {/* GAME 1 SCREEN */}
         {screen === "game1" && (
           <Game1 />
+        )}
+
+                {/* GAME 2 SCREEN */}
+        {screen === "game2" && (
+          <Game2 />
         )}
 
       </div>
