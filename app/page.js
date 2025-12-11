@@ -1,22 +1,25 @@
-
 "use client";
 
-import React from 'react';
-import {animate} from "animejs"; //npm install animejs
-// import about from '../components/about';
-// import ending from '../components/ending';
-// import footer from '../components/footer';
-// import game1 from '../components/game1';
-// import game2 from '../components/game2';
-// import navbar from '../components/navbar';
-// import quiz from '../components/quiz.jsx';
-// import welcome from '../components/welcome';
-import CatFishGame from '../components/cat-fish-game.jsx';
+import React, { useState } from 'react';
+import Welcome from '../components/welcome';
 
 export default function HomePage() {
+  const [showWelcome, setShowWelcome] = useState(true);
+
   return (
-    <div>
-      <CatFishGame />
+    <div className="relative min-h-screen">
+      {showWelcome && (
+        <Welcome onComplete={() => setShowWelcome(false)} />
+      )}
+
+      <div className={`transition-opacity duration-1000 ${showWelcome ? 'opacity-0' : 'opacity-100'}`}>
+        {/* Placeholder */}
+        <div className="p-8 text-center">
+          <h1 className="text-3xl font-bold mb-4">Save The World</h1>
+          <p className="mb-8">Information</p>
+        </div>
+
+      </div>
     </div>
   );
 }
