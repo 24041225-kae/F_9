@@ -133,3 +133,42 @@ h1 {
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
 }
+
+.home {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.intro-section,
+.how-to-play,
+.ready-section {
+  margin-top: 40px;
+}
+
+.intro-section h2,
+.how-to-play h2,
+.ready-section h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.btn-ready {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffb74d;
+  cursor: pointer;
+}
+
+.btn-ready:hover {
+  background-color: #ffa726;
+}
