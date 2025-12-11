@@ -5,7 +5,6 @@ import React from "react";
 export default function Home({ onStart }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-[#E8F5FF]">
-      {/* Soft cloud-like card */}
       <div className="bg-white shadow-xl rounded-3xl p-10 max-w-2xl text-center border-[3px] border-[#B7DBFF]">
 
         <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2]">
@@ -18,7 +17,6 @@ export default function Home({ onStart }) {
 
         <div className="text-left space-y-6">
 
-          {/* About animal abuse */}
           <section>
             <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2">
               🐶 About Animal Abuse
@@ -29,7 +27,6 @@ export default function Home({ onStart }) {
             </p>
           </section>
 
-          {/* How to play */}
           <section>
             <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2">
               🎮 How to Play
@@ -41,7 +38,6 @@ export default function Home({ onStart }) {
             </p>
           </section>
 
-          {/* Ready section */}
           <section className="text-center pt-4">
             <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3">
               ⭐ Are You Ready?
