@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CatFishGame.css"; // <-- Make sure this file exists
 
 const initialFishes = [
   { id: "fish1", label: "🐟 Fish 1", isCorrect: false },
