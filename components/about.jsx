@@ -15,7 +15,7 @@ export default function About() {
         <h2 style={{fontSize: '24px', marginBottom: '20px', textAlign: 'center', color: '#4A90E2'}}>Our Team</h2>
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '40px'}}>
             <div className="flex flex-col items-center" style={{textAlign: 'center', padding: '20px', border: '2px solid #B7DBFF', borderRadius: '12px', backgroundColor: '#F0F7FF'}}>
-                <img src="./kaelynn.jpg" alt="Kaelynn Fong" loading="lazy" style={{width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginBottom: '15px'}}/>
+                <img className="hover:animate-spin" src="./kaelynn.jpg" alt="Kaelynn Fong" loading="lazy" style={{width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginBottom: '15px'}}/>
                 <h3 style={{fontSize: '18px', margin: '10px 0', color: '#4A90E2'}}><strong>Kaelynn Fong</strong></h3>
                 <p style={{fontSize: '14px', color: '#666'}}>Project Manager</p>
             </div>
@@ -25,7 +25,7 @@ export default function About() {
                 <p style={{fontSize: '14px', color: '#666'}}>Lead Developer</p>
             </div>
             <div className="flex flex-col items-center" style={{textAlign: 'center', padding: '20px', border: '2px solid #B7DBFF', borderRadius: '12px', backgroundColor: '#F0F7FF'}}>
-                <img src="./chiaen.jpg" alt="Cheng Chia En" loading="lazy" style={{width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginBottom: '15px'}}/>
+                <img className="hover:animate-spin" src="./chiaen.jpg" alt="Cheng Chia En" loading="lazy" style={{width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', marginBottom: '15px'}}/>
                 <h3 style={{fontSize: '18px', margin: '10px 0', color: '#4A90E2'}}><strong>Cheng Chia En</strong></h3>
                 <p style={{fontSize: '14px', color: '#666'}}>UX/UI Designer</p>
             </div>
@@ -33,14 +33,19 @@ export default function About() {
         
         <h2 style={{fontSize: '24px', marginBottom: '20px', textAlign: 'center', color: '#4A90E2'}}>Our Mission</h2>
         <p style={{fontSize: '16px', marginBottom: '30px', lineHeight: '1.6', textAlign: 'center'}}>Our mission is to create engaging and educational experiences that raise awareness about important global issues. Through our games and interactive content, we aim to inspire change and encourage proactive behavior in our community.</p>
+
+        
+        <h2 style={{fontSize: '24px', marginBottom: '20px', textAlign: 'center', color: '#4A90E2'}}>About Huumonia</h2>
+        <i style={{fontSize: '16px', marginBottom: '30px', lineHeight: '1.6', textAlign: 'center'}}>Our Story</i>
+        <p style={{fontSize: '16px', marginBottom: '30px', lineHeight: '1.6', textAlign: 'center'}}>Huumonia began from our team's discussion around the “save the world” problem statement and how it connects to issues happening locally. As we researched further, we became more aware of animal abuse and poaching cases within our own surroundings. These incidents showed us how harmful actions against animals do not only affect individual lives, but can also disrupt wildlife populations and ecosystems over time. Seeing these problems close to home made them feel more real, and motivated us to create a platform that encourages awareness instead of indifference.</p>
         
         <h3 style={{fontSize: '20px', marginBottom: '15px', textAlign: 'center', color: '#4A90E2'}}>Group Photos</h3>
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '40px', justifyItems: 'center'}}>
             <div style={{textAlign: 'center'}}>
-                <img src="./threeofus.jpg" alt="Group Photo" loading="lazy" style={{width: '400px', height: 'auto', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)'}}/>
+                <img src="./threeofus.jpg" alt="Group Photo" loading="lazy" style={{width: '400px', height: '400px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)'}}/>
             </div>
             <div style={{textAlign: 'center'}}>
-                <img src="./pic2ofus.jpg" alt="Group Photos" loading="lazy" style={{width: '400px', height: 'auto', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)'}}/>
+                <img src="./pic2ofus.jpg" alt="Group Photos" loading="lazy" style={{width: '400px', height: '400px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)'}}/>
             </div>
         </div>
         
