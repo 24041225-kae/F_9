@@ -14,7 +14,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 OR
-Open [[https://24041225-kae.github.io/F_9/ ](https://24041225-kae.github.io/F_9/ ) with your browser to see the live result.
+Open [https://24041225-kae.github.io/F_9/ ](https://24041225-kae.github.io/F_9/ ) with your browser to see the live result.
 
 
 ## Backstory
