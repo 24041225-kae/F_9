@@ -14,7 +14,7 @@ export default function Game2Content({ onDone }) {
             <div className="bg-white shadow-xl rounded-3xl p-10 w-full max-w-4xl border-[3px] border-[#B7DBFF]">
 
                 {/* Title */}
-                <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2] text-center">
+                <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2] text-center animate-[float_3s_ease-in-out_infinite]">
                     🦊 Learn More About Animal Poaching
                 </h1>
 
@@ -79,7 +79,7 @@ export default function Game2Content({ onDone }) {
 
                 {/* WHAT YOU CAN DO */}
                 <section className="mb-10">
-                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3">
+                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3 animate-[float_3s_ease-in-out_infinite]">
                         🌿 What You Can Do to Protect Wildlife
                     </h2>
 
@@ -101,7 +101,7 @@ export default function Game2Content({ onDone }) {
                         </li>
                     </ul>
 
-                    <p className="mt-4 italic text-gray-600">
+                    <p className="mt-4 italic text-gray-600 animate-[typing_2s_steps(30)_forwards]">
                         Small actions build bigger change. You can help protect wildlife by spreading awareness.
                     </p>
                 </section>
@@ -110,7 +110,7 @@ export default function Game2Content({ onDone }) {
 
                 {/* REPORT ILLEGAL HUNTING */}
                 <section className="mb-10 bg-[#F0F7FF] p-6 rounded-2xl border border-[#C8E2FF]">
-                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3">
+                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3 animate-[float_3s_ease-in-out_infinite]">
                         🚨 Report Illegal Hunting
                     </h2>
 
@@ -136,7 +136,7 @@ export default function Game2Content({ onDone }) {
 
                 {/* External Links */}
                 <section className="mb-10">
-                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3">
+                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3 animate-[float_3s_ease-in-out_infinite]">
                         Learn More About Wildlife Protection
                     </h2>
 

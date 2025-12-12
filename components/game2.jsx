@@ -98,7 +98,7 @@ export default function Game2() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-50 to-slate-100 pt-0 pb-12 px-4">
       <div className="mx-auto max-w-3xl text-center">
-        <h1 className="mb-2 text-4xl font-bold text-slate-900">
+        <h1 className="mb-2 text-4xl font-bold text-slate-900 animate-[float_3s_ease-in-out_infinite]">
           Game 2 – Poaching Case Quiz
         </h1>
         <p className="mb-8 text-lg text-slate-600">

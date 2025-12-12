@@ -8,13 +8,13 @@ export default function Game1Content({ onBack, onNextGame }) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-6 pt-1 bg-[#E8F5FF]">
             <div className="bg-white shadow-xl rounded-3xl p-10 w-full max-w-4xl border-[3px] border-[#B7DBFF]">
 
                 {/* Title */}
-                <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2] text-center">
+                <h1 className="text-4xl font-extrabold mb-6 text-[#4A90E2] text-center animate-[float_3s_ease-in-out_infinite]">
                     🐾 Learn More About Animal Abuse
                 </h1>
 
@@ -54,7 +54,7 @@ export default function Game1Content({ onBack, onNextGame }) {
 
                 {/* WHAT TO DO CTA */}
                 <section className="mb-10">
-                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3">
+                    <h2 className="text-2xl font-bold text-[#6BB9F0] mb-3 animate-[float_3s_ease-in-out_infinite]">
                         🚨 If You Witness Animal Abuse
                     </h2>
 

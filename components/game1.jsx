@@ -71,9 +71,9 @@ export default function Game1({ onNextGame }) {
 
       {/* Case Study Box */}
       <section className="bg-white shadow-xl rounded-3xl p-8 max-w-3xl w-full border-[3px] border-[#B7DBFF]">
-        <h1 className="text-3xl font-extrabold text-[#4A90E2] mb-2">Case Study 1</h1>
+        <h1 className="text-3xl font-extrabold text-[#4A90E2] mb-2 animate-[float_3s_ease-in-out_infinite]">Case Study 1</h1>
 
-        <h2 className="text-xl font-semibold text-[#6BB9F0]">Physical Abuse</h2>
+        <h2 className="text-xl font-semibold text-[#6BB9F0] animate-[float_5s_ease-in-out_infinite]">Physical Abuse</h2>
 
         <img
           src="./game1.png"

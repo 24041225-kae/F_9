@@ -7,18 +7,18 @@ export default function Home({ onStart }) {
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-[#E8F5FF]">
       <div className="bg-white shadow-xl rounded-3xl p-10 w-full max-w-4xl text-center border-[3px] border-[#B7DBFF] mx-auto">
 
-        <h1 className="text-5xl font-extrabold mb-6 text-[#4A90E2] whitespace-nowrap">
+        <h1 className="text-5xl font-extrabold mb-6 text-[#4A90E2] whitespace-nowrap animate-[float_3s_ease-in-out_infinite]">
             🐾 Welcome to Animal Heroes!
         </h1>
 
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-600 mb-8 animate-[float_3s_ease-in-out_infinite]">
           Learn how to protect and care for animals through fun mini-games.
         </p>
 
         <div className="text-left space-y-6">
 
         <section>
-            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2">
+            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2 animate-[float_3s_ease-in-out_infinite]">
                 🐶 About Animal Abuse
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
@@ -26,7 +26,7 @@ export default function Home({ onStart }) {
                 understand what animal abuse is and how kindness makes a big difference.
             </p>
 
-            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2">
+            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2 animate-[float_3s_ease-in-out_infinite]">
                 🐱 About Animal Hunting
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
@@ -38,7 +38,7 @@ export default function Home({ onStart }) {
 
 
         <section>
-            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2">
+            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-2 animate-[float_3s_ease-in-out_infinite]">
               🎮 How to Play
             </h2>
             <p className="text-gray-700 leading-relaxed">

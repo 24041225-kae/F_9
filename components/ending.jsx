@@ -102,7 +102,7 @@ export default function Ending() {
         {/* Main Content */}
         <div className="p-10 bg-gradient-to-br from-[#E8F5FF] to-white">
           {/* Title */}
-          <h1 className="text-5xl font-extrabold text-[#4A90E2] mb-2 text-center">
+          <h1 className="text-5xl font-extrabold text-[#4A90E2] mb-2 text-center animate-[float_3s_ease-in-out_infinite]">
             🎉 Congratulations!
           </h1>
 
@@ -198,10 +198,10 @@ export default function Ending() {
 
           {/* Final Message */}
           <div className="bg-white border-2 border-[#6BB9F0] rounded-2xl p-8 mb-10 shadow-md">
-            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-4 text-center">
-              🌍 Let&apos;s Save the World Together
+            <h2 className="text-2xl font-bold text-[#6BB9F0] mb-4 text-center animate-[float_3s_ease-in-out_infinite]">
+              🌍 Let&apos;s Save the World Together, and Protect their World
             </h2>
-            <p className="text-gray-700 leading-relaxed text-center">
+            <p className="text-gray-700 leading-relaxed text-center animate-[float_3s_ease-in-out_infinite]">
               Spread awareness, take action, and continue being a voice for animals.
               Together, we can make the world a better place — one paw at a time. 🐾✨
             </p>
